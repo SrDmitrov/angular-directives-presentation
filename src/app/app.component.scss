@@ -2,6 +2,9 @@ section {
   border: solid black 1px;
   margin-bottom: 2vh;
   padding: 1rem;
+  * {
+    transition: all 0.5s;
+  }
 }
 h2 {
   font-size: 28px;
@@ -9,8 +12,10 @@ h2 {
 ul {
   list-style: none;
 }
-button {
-  transition: all 0.5s;
+
+.active {
+  height: 40px;
+  font-weight: 700;
 }
 
 .green {

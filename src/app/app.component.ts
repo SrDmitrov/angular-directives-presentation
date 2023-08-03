@@ -1,40 +1,13 @@
 import { Component } from '@angular/core';
 import { Observable, delay, of, take } from 'rxjs';
-
-const EL = 'hello,';
-const ELS = [EL, 'is', 'there', 'anybody', 'in', 'there?'];
-const MEMBERS = [
-  { name: 'David Gilmour', instrument: 'guitar' },
-  { name: 'Rick Wright', instrument: 'keyboard' },
-  { name: 'Nick Mason', instrument: 'drums' },
-  { name: 'Roger Waters', instrument: 'bass' },
-];
-const OG_MEMBERS = [{ name: 'Syd barrett', instrument: 'Vocalist' }];
+import { EL, ELS, MEMBERS, OG_MEMBERS } from './constants';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  el: string = 'hello,';
-  els: string[] = [this.el, 'is', 'there', 'anybody', 'in', 'there?'];
-  emptyMembers: any[] = [];
-  ogMembers: any[] = [{ name: 'Syd barrett', instrument: 'Vocalist' }];
-  members: any[] = [
-    { name: 'David Gilmour', instrument: 'guitar' },
-    { name: 'Rick Wright', instrument: 'keyboard' },
-    { name: 'Nick Mason', instrument: 'drums' },
-    { name: 'Roger Waters', instrument: 'bass' },
-  ];
-  members$: Observable<any> = of(this.members.concat(this.ogMembers)).pipe(
-    delay(1500)
-  );
-  ogMembers$: Observable<any> = of(this.emptyMembers).pipe(take(5));
-  member: string = '';
-
-  //*NUEVO
-}
+export class AppComponent {}
 
 @Component({
   selector: 'app-if',
@@ -280,6 +253,7 @@ export class ClassComponent {
       <input type="text" [(ngModel)]="inputValue" />
 
       <h3>ngModel entre bambalinas</h3>
+
       <input
         type="text"
         [ngModel]="inputValue"
@@ -307,7 +281,12 @@ export class ModelComponent {
 
 @Component({
   selector: 'app-custom-directive',
-  template: ``,
+  template: `
+    <section>
+      <h2>Custom directive</h2>
+      <button>Botón normal</button>
+    </section>
+  `,
   styleUrls: ['./app.component.scss'],
 })
 export class CustomComponent {}
