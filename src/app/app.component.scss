@@ -1,0 +1,53 @@
+section {
+  border: solid black 1px;
+  margin-bottom: 2vh;
+  padding: 1rem;
+}
+h2 {
+  font-size: 28px;
+}
+ul {
+  list-style: none;
+}
+button {
+  transition: all 0.5s;
+}
+
+.green {
+  font-weight: bold;
+  color: green;
+  font-size: 16px;
+}
+.red {
+  font-weight: bold;
+  color: red;
+  font-size: 16px;
+}
+
+.black {
+  font-weight: normal;
+  font-size: 12px;
+  font-style: italic;
+  color: yellow;
+}
+
+.yellow {
+  font-weight: bold;
+  font-size: 32px;
+  color: black;
+}
+
+.big {
+  height: 200px;
+  width: 200px;
+  background: yellow;
+  border-radius: 50%;
+  border: solid black 5px;
+}
+
+.small {
+  height: 20px;
+  width: 80px;
+  background: black;
+  border: solid yellow 2px;
+}
