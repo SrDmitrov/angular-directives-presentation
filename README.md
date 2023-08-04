@@ -1,6 +1,6 @@
 # AngularDirectivesPresentation
 
-This project build as an example to support a presentation about Angular Directive, on 04/08/2023
+This project was made as an example to support a presentation about Angular Directives, on 04/08/2023
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
 
