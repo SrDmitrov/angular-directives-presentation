@@ -1,21 +1,23 @@
 import {
-  AfterViewInit,
   Directive,
+  AfterViewInit,
   ElementRef,
-  HostListener,
   Input,
   inject,
+  HostListener,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 
 @Directive({
-  selector: '[customDirective]',
+  selector: '[custom-btn-style]',
   standalone: true,
 })
-export class CustomDirective implements AfterViewInit {
+export class CustomBtnStyle implements AfterViewInit {
   private elementRef: ElementRef = inject(ElementRef);
 
-  @Input('text-color') color: string = '#1e88e5';
-  @Input('bg-color') background: string = '#ffffff';
+  @Input('textColor') color: string = '#1e88e5';
+  @Input('bgColor') background: string = '#ffffff';
   height: string = '200px';
   width: string = '200px';
   fontSize: string = '24px';
@@ -39,14 +41,39 @@ export class CustomDirective implements AfterViewInit {
     this.elementRef.nativeElement.style.border = this.border;
     this.elementRef.nativeElement.style.boxShadow = this.boxShadow;
   }
+}
+@Directive({
+  selector: '[pointerActive]',
+  standalone: true,
+})
+export class PointerActive {
+  private elementRef: ElementRef = inject(ElementRef);
+  @Output() onClick = new EventEmitter()
 
-  @HostListener('pointerup')
+  @HostListener('pointerdown') onPress() {
+    this.elementRef.nativeElement.style.filter = 'brightness(100%)';
+    this.elementRef.nativeElement.style.scale = 0.98;
+    this.onClick.emit(true)
+  }
+  @HostListener('pointerup') onRelease() {
+    this.elementRef.nativeElement.style.filter = 'brightness(85%)';
+    this.elementRef.nativeElement.style.scale = 1;
+    this.onClick.emit(false)
+  }
+}
+
+@Directive({
+  selector: '[pointerHover]',
+  standalone: true,
+})
+export class PointerHover {
+  private elementRef: ElementRef = inject(ElementRef);
+
   @HostListener('pointerenter')
   toDark() {
     this.elementRef.nativeElement.style.filter = 'brightness(85%)';
   }
 
-  @HostListener('pointerdown')
   @HostListener('pointerleave')
   toDefault() {
     this.elementRef.nativeElement.style.filter = 'brightness(100%)';

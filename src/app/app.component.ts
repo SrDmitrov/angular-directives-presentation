@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { Observable, delay, of, take } from 'rxjs';
 import { EL, ELS, MEMBERS, OG_MEMBERS } from './constants';
 
@@ -283,13 +283,23 @@ export class ModelComponent {
   selector: 'app-custom-directive',
   template: `
     <section>
-      <h2>Custom directive</h2>
+      <h2>Directivas personalizadas</h2>
+      <h3>Custom directive</h3>
       <button>Botón normal</button>
+
+      <h3>Custom Host Directive</h3>
+      <button csButton (onClick)="onClickHandler($event)">Botón normal</button>
+      <p *ngIf="active">Estás pulsando el botón</p>
     </section>
   `,
   styleUrls: ['./app.component.scss'],
 })
-export class CustomComponent {}
+export class CustomComponent {
+  active: boolean = false;
+  onClickHandler(value: boolean) {
+    this.active = value;
+  }
+}
 
 @Component({
   selector: 'app-style',
