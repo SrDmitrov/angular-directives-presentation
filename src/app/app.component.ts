@@ -285,10 +285,19 @@ export class ModelComponent {
     <section>
       <h2>Directivas personalizadas</h2>
       <h3>Custom directive</h3>
-      <button>Botón normal</button>
+      <button customDirective text-color="black" bg-color="yellow">
+        Botón normal
+      </button>
 
       <h3>Custom Host Directive</h3>
-      <button csButton (onClick)="onClickHandler($event)">Botón normal</button>
+      <button
+        csButton
+        textColor="yellow"
+        background="black"
+        (onClick)="onClickHandler($event)"
+      >
+        Botón normal
+      </button>
       <p *ngIf="active">Estás pulsando el botón</p>
     </section>
   `,
